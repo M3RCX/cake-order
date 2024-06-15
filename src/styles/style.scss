@@ -1,0 +1,73 @@
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/variables-dark";
+@import "bootstrap/scss/maps";
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/utilities";
+
+$background-color: #e4eef2;
+$text-primary-color: #24457b;
+$primary-color: #24457b;
+$input-background-color: #f4fafd;
+
+body {
+  &.custom-bg {
+    background-color: $background-color;
+  }
+}
+
+.text-normal {
+  color: $text-primary-color;
+}
+
+.main-title {
+    font-size: 5vw;
+  @include media-breakpoint-down(sm) {
+    font-size: 11vw;
+  }
+}
+
+hr {
+  &.divider {
+    opacity: 0.4;
+  }
+}
+
+.required {
+  color: $red-500;
+}
+
+img {
+  width: 90%;
+
+}
+
+input {
+  &.form-input {
+    background-color: $input-background-color;
+    color: $text-primary-color;
+  }
+}
+
+button {
+  &.btn {
+    border-radius: 50px;
+    background-color: $primary-color;
+    border: $primary-color;
+  }
+}
+
+input[type="radio"] {
+  width: 25px;
+  height: 25px;
+  margin: 12px;
+  border: 1px solid $yellow-600;
+  &:checked {
+    background-color: $yellow-600;
+    border: none;
+  }
+  &:focus {
+    border: 1px solid $yellow-600;
+    box-shadow: none;
+  }
+}
