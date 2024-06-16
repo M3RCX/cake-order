@@ -6,7 +6,7 @@ Este projeto é uma implementação do desafio da Prova Técnica Front-end, que 
 
 - React: ⚛️ Uma biblioteca JavaScript para criar interfaces de usuário.
 - SASS: 🎨 Um pré-processador CSS que permite usar variáveis, regras aninhadas, mixins, funções e muito mais.
-- React-Bootstrap: 🥾 A versão do Bootstrap feita especificamente para o React.
+- React-Bootstrap: 🧩 A versão do Bootstrap feita especificamente para o React.
 
 ## 🎁 Funcionalidades 🎁
 
