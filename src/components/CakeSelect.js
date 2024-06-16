@@ -1,7 +1,7 @@
 import React from "react";
 import { Form, Image } from "react-bootstrap";
 
-const CakeSelect = ({ id, src, value }) => {
+const CakeSelect = ({ id, src, value, onChange }) => {
   return (
     <div className="py-3">
       <Form.Check
@@ -11,14 +11,16 @@ const CakeSelect = ({ id, src, value }) => {
         name="radioGroup"
         label={
           <>
-            <Image src={`${src}`} className="" />
+            <Image
+              src={`${src}`}
+              className=""
+              style={{ maxHeight: "380px" }}
+            />
           </>
         }
         value={`${value}`}
         className="d-flex align-items-center "
-
-        // checked={selectedOption === 'option1'}
-        // onChange={handleOptionChange}
+        onChange={onChange}
       />
     </div>
   );
