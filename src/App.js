@@ -1,4 +1,4 @@
-import OrderForm from "./components/OrderForm";
+import OrderForm from "./pages/OrderForm";
 
 function App() {
   return (

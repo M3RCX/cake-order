@@ -62,7 +62,6 @@ const FormCake = () => {
     } else {
       setShowModal(true);
       event.preventDefault();
-      console.log(formValues);
 
       const response = await fetch(
         "https://jsonplaceholder.typicode.com/posts",
@@ -84,8 +83,6 @@ const FormCake = () => {
         setmodalMessage(" order sent successfully");
         setmodalTitle("congratulations!");
         setShowModal(true);
-        console.log(JSON.stringify(formValues));
-        console.log("enviaado");
       }
       setValidated(true);
     }

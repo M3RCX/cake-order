@@ -1,6 +1,6 @@
 import React from "react";
 import {Col, Row } from "react-bootstrap";
-import FormCake from "./Form";
+import FormCake from "../components/Form";
 
 const OrderForm = () => {
 
