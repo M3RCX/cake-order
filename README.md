@@ -12,7 +12,7 @@ Este projeto é uma implementação do desafio da Prova Técnica Front-end, que 
 
 - Layout responsivo que se adapta a diferentes tamanhos de tela.
 - Formulário de encomenda de bolos que valida os campos obrigatórios, garante que o endereço de e-mail seja válido e que a data selecionada não seja anterior à data atual.
-- Integração com a API de teste jsonplaceholder.typicode.com/posts para simular o envio de encomendas.
+- Integração com a API de teste `jsonplaceholder.typicode.com/posts` para simular o envio de encomendas.
 
 ## 🚀 Como Executar o Projeto 🚀
 
