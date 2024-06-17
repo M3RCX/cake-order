@@ -85,8 +85,8 @@ const FormCake = () => {
         setmodalTitle("congratulations!");
         setShowModal(true);
       }
-      setValidated(true);
     }
+    setValidated(true);
   };
 
   return (
