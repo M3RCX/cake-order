@@ -96,6 +96,7 @@ const FormCake = () => {
         setmodalMessage("Order sent successfully.");
         setmodalTitle("Congratulations!");
         setShowModal(true);
+        
       }
     }
     setValidated(true);

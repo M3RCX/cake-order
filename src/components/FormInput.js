@@ -12,7 +12,7 @@ const FormInput = ({
   lengthMax,
   isMobile,
   formText,
-  cssCustom
+  cssCustom,
 }) => {
   return (
     <Form.Group className={`mb-3 ${cssCustom}`} controlId={`form${name}`}>
@@ -43,7 +43,7 @@ const FormInput = ({
             maxLength={lengthMax}
           />
           <Form.Control.Feedback type="invalid">
-            {invalidMessage}
+            <Alert variant="danger">{invalidMessage}</Alert>
           </Form.Control.Feedback>
         </>
       ) : (
