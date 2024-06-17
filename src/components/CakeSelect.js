@@ -19,7 +19,7 @@ const CakeSelect = ({ id, src, value, onChange }) => {
           </>
         }
         value={`${value}`}
-        className="d-flex align-items-center "
+        className="d-flex align-items-center prevent-validation"
         onChange={onChange}
       />
     </div>

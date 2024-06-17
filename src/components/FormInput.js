@@ -1,5 +1,5 @@
 import React from "react";
-import { Form } from "react-bootstrap";
+import { Form, Alert } from "react-bootstrap";
 
 const FormInput = ({
   type,
@@ -17,7 +17,12 @@ const FormInput = ({
   return (
     <Form.Group className={`mb-3 ${cssCustom}`} controlId={`form${name}`}>
       {labelText && (
-        <Form.Label className={`text-normal fs-4 ${type === 'email' ? 'mb-0' : ''}`}>{labelText}{required && (<span className="required">*</span>)}</Form.Label>
+        <Form.Label
+          className={`text-normal fs-4 ${type === "email" ? "mb-0" : ""}`}
+        >
+          {labelText}
+          {required && <span className="required">*</span>}
+        </Form.Label>
       )}
 
       {isMobile ? (
@@ -45,7 +50,9 @@ const FormInput = ({
         <>
           <Form.Control
             size="lg"
-            className="form-input fw-lighter border border-black"
+            className={`form-input fw-lighter border border-black ${
+              !required ? "prevent-validation" : ""
+            }`}
             type={type}
             placeholder={placeholder}
             required={required}
@@ -58,9 +65,11 @@ const FormInput = ({
               {formText}
             </Form.Text>
           )}
-          <Form.Control.Feedback type="invalid">
-            {invalidMessage}
-          </Form.Control.Feedback>
+          {invalidMessage && (
+            <Form.Control.Feedback type="invalid">
+              <Alert variant="danger">{invalidMessage}</Alert>
+            </Form.Control.Feedback>
+          )}
         </>
       )}
     </Form.Group>

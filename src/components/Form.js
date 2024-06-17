@@ -1,5 +1,5 @@
 import { React, useState } from "react";
-import { Button, Col, Form, Row, Modal } from "react-bootstrap";
+import { Button, Col, Form, Row, Modal, Alert } from "react-bootstrap";
 import CakeSelect from "./CakeSelect";
 
 import cake1 from "../assets/cake1.jpg";
@@ -13,6 +13,8 @@ const FormCake = () => {
   const [showModal, setShowModal] = useState(false);
   const [modalMessage, setmodalMessage] = useState("");
   const [modalTitle, setmodalTitle] = useState("");
+  const [radioError, setRadioError] = useState(false);
+  const [dateError, setDateError] = useState(false);
 
   const [formValues, setFormValues] = useState({
     typeCake: "",
@@ -43,12 +45,22 @@ const FormCake = () => {
     var formValid = form.checkValidity();
     var dateValid = true;
 
+    if (!formValues.typeCake) {
+      setRadioError(true);
+      formValid = false;
+    } else {
+      setRadioError(false);
+    }
+
     if (date <= today) {
       formValid = false;
       dateValid = false;
       setShowModal(true);
-      setmodalMessage("invalid date please select a date after today");
-      setmodalTitle("invalid date");
+      setmodalMessage("Invalid date, please select a date after today.");
+      setmodalTitle("Invalid date");
+      setDateError(true);
+    }else{
+      setDateError(false);
     }
 
     if (formValid === false) {
@@ -57,8 +69,8 @@ const FormCake = () => {
       window.scrollTo(0, 0);
       if (dateValid) {
         setShowModal(true);
-        setmodalMessage("Oops, check the form and try again");
-        setmodalTitle("invalid form");
+        setmodalMessage("Oops, check the form and try again.");
+        setmodalTitle("Invalid form");
       }
     } else {
       setShowModal(true);
@@ -78,11 +90,11 @@ const FormCake = () => {
       if (!response.ok) {
         console.log(response.error);
 
-        setmodalMessage("Oops we had a problem, try again in a moment");
+        setmodalMessage("Oops, we had a problem. Try again in a moment.");
         setmodalTitle("Error send");
       } else {
-        setmodalMessage(" order sent successfully");
-        setmodalTitle("congratulations!");
+        setmodalMessage("Order sent successfully.");
+        setmodalTitle("Congratulations!");
         setShowModal(true);
       }
     }
@@ -97,6 +109,7 @@ const FormCake = () => {
       className="px-2"
     >
       <Row>
+        {radioError && <Alert variant="danger">Please select a cake.</Alert>}
         <Col xs={12} md={6}>
           <CakeSelect
             id={"option1"}
@@ -178,6 +191,7 @@ const FormCake = () => {
             }
             labelText={"Delivery date"}
           />
+          {dateError && <Alert variant="danger">please select a date after today.</Alert>}
         </Col>
         <Col xs={12} md={6}>
           <FormInput
@@ -201,7 +215,7 @@ const FormCake = () => {
             onChange={(e) =>
               setFormValues({ ...formValues, phone: e.target.value })
             }
-            labelText={"phone"}
+            labelText={"Phone"}
             lengthMax={14}
             invalidMessage={"Please insert a valid phone."}
           />
@@ -279,8 +293,7 @@ const FormCake = () => {
           <Form.Group className="mb-3" controlId="formCountry">
             <Form.Select
               size="lg"
-              className="form-input fw-lighter border border-black"
-              aria-label="Default select example"
+              className="form-input fw-lighter border border-black prevent-validation"
               name="country"
               value={formValues.country}
               onChange={(e) => {
